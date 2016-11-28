@@ -10,22 +10,49 @@ namespace HW5
     {
         static void Main(string[] args)
         {
-            //int sizeArr = 0;
-            //int[] arrayNew = FillArrayFromConsole(ref sizeArr);
-            /*
-            BubbleSorter BubbleSort = new BubbleSorter(arrayNew, sizeArr);
-            BubbleSort.PrintArr(arrayNew);
-            BubbleSort.SortBubble();
-            BubbleSort.PrintArr(arrayNew);*/
-            /*InsertionSorter InsertionSort = new InsertionSorter(arrayNew, sizeArr);
-            InsertionSort.PrintArr(arrayNew);
-            InsertionSort.SortInsertion();
-            InsertionSort.PrintArr(arrayNew);*/
-            //Stack StackInst = new Stack();
-            //StackMenu( StackInst );
-            Queue QueueInst = new Queue();
-            QueueInst.QueueInit();
-            QueueMenu(QueueInst);
+            int sizeArr = 0;
+            int[] arrayNew;
+
+            Console.WriteLine("Please select one of the following option: 1=Buble Sort, 2=Insertion Sort, 3=Stack, 4=Circular Buffer");
+            Console.Write("Please enter your selection: ");
+            //InputSimulator.SimulateKeyDown(VirtualKeyCode.VK_4);
+            //InputSimulator.SimulateKeyDown(VirtualKeyCode.RETURN);
+            string str = Console.ReadLine();
+            switch (str)
+            {
+                case "1":
+                case "Bubble Sort":
+                    arrayNew = FillArrayFromConsole(ref sizeArr);
+                    BubbleSorter BubbleSort = new BubbleSorter(arrayNew, sizeArr);
+                    BubbleSort.PrintArr(arrayNew);
+                    BubbleSort.SortBubble();
+                    BubbleSort.PrintArr(arrayNew); 
+                    break;
+                case "2":
+                case "Insertion Sort":
+                    arrayNew = FillArrayFromConsole(ref sizeArr);
+                    InsertionSorter InsertionSort = new InsertionSorter(arrayNew, sizeArr);
+                    InsertionSort.PrintArr(arrayNew);
+                    InsertionSort.SortInsertion();
+                    InsertionSort.PrintArr(arrayNew);
+                    break;
+                case "3":
+                case "Stack":
+                    Stack StackInst = new Stack();
+                    StackMenu( StackInst );
+                    break;
+                case "4":
+                case "Circular Buffer":
+                    Queue QueueInst = new Queue();
+                    QueueInst.QueueInit();
+                    QueueMenu(QueueInst);
+                    break;
+                default:
+                    Console.WriteLine("Invalid selection. Please select 1, 2, or 3, or 4.");
+                    break;
+            }
+            Console.WriteLine("Press ENTER to quite");
+            Console.Read();
         }
 
         static int[] FillArrayFromConsole(ref int sizeIn)
