@@ -15,6 +15,15 @@ namespace HW5
         private int tail;
         private int Value;
 
+        public Queue()
+        {
+            sizeA = 0;
+            head = 0;
+            tail = 0;
+            Value = 0;
+            count = 0; // 
+            arrayA = null;
+        }
         public bool IsFull()
         {
             if (count < sizeA)  // check if the buffer is not full yet
